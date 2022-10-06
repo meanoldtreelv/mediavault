@@ -6,10 +6,9 @@ services:
     container_name: swag
     cap_add:
       - NET_ADMIN
+    env_file:
+      - /env/common.env
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
       - URL=treehausmedia.com
       - SUBDOMAINS=www,
       - VALIDATION=http
