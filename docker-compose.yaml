@@ -19,7 +19,23 @@ services:
       - 443:443
       - 80:80 #optional
     restart: unless-stopped
-
+  
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    env_file:
+      - /env/common.env
+    volumes:
+      - /docker/jellyfin:/config
+      - /home/claunius/drive/Library/TV:/data/tvshows
+      - /home/claunius/drive/Library/Movies:/data/movies
+      - /home/claunius/drive/Library/Anime:/data/anime
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+      - 7359:7359/udp #optional
+      - 1900:1900/udp #optional
+    restart: unless-stopped
 
 
 networks:
