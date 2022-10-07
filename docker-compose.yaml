@@ -101,8 +101,8 @@ services:
     volumes:
       - /docker/heimdall-local:/config
     ports:
-      - 80:80
-      - 443:443
+      - 9080:80
+      - 9443:443
     restart: unless-stopped
 
 
