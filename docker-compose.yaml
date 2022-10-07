@@ -49,7 +49,34 @@ services:
     ports:
       - 6789:6789
     restart: unless-stopped
+ 
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    env_file:
+      - /env/common.env
+    volumes:
+      - /docker/sonarr:/config
+      - /docker/library:/tv #optional
+      - /docker/library/downloads:/downloads #optional
+    ports:
+      - 8989:8989
+    restart: unless-stopped
 
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    env_file:
+      - /env/common.env
+    volumes:
+      - /docker/radarr:/config
+      - /docker/library:/movies #optional
+      - /docker/library/downloads:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+    
 
 networks:
   default:
