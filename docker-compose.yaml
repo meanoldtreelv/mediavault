@@ -28,6 +28,7 @@ services:
     volumes:
       - /docker/jellyfin:/config
       - /docker/library:/data/library
+      - /docker/googledrive:googledrive
     ports:
       - 8096:8096
       - 8920:8920 #optional
@@ -59,6 +60,7 @@ services:
       - /docker/sonarr:/config
       - /docker/library:/tv #optional
       - /docker/library/downloads:/downloads #optional
+      - /docker/googledrive:googledrive
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -72,6 +74,7 @@ services:
       - /docker/radarr:/config
       - /docker/library/movies:/movies #optional
       - /docker/library/downloads:/downloads #optional
+      - /docker/googledrive:googledrive
     ports:
       - 7878:7878
     restart: unless-stopped
