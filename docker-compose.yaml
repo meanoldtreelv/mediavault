@@ -10,7 +10,7 @@ services:
       - /env/common.env
     environment:
       - URL=treehausmedia.com
-      - SUBDOMAINS=www,admin,
+      - SUBDOMAINS=www,admin,watch
       - VALIDATION=http
       - EMAIL=meanoldtreelv@gmail.com
     volumes:
