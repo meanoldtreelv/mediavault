@@ -79,6 +79,19 @@ services:
       - 7878:7878
     restart: unless-stopped
 
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    env_file:
+      - /env/common.env
+    volumes:
+      - /docker/deluge:/config
+      - /docker/library/downloads:/downloads
+    ports:
+      - 8112:8112
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped
 
 
 networks:
