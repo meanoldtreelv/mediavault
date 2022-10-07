@@ -27,7 +27,7 @@ services:
       - /env/common.env
     volumes:
       - /docker/jellyfin:/config
-      - /home/claunius/drive/Library/TV:/data/library
+      - /docker/library:/data/library
     ports:
       - 8096:8096
       - 8920:8920 #optional
