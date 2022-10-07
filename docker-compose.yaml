@@ -70,13 +70,13 @@ services:
       - /env/common.env
     volumes:
       - /docker/radarr:/config
-      - /docker/library:/movies #optional
+      - /docker/library/movies:/movies #optional
       - /docker/library/downloads:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
 
-    
+
 
 networks:
   default:
