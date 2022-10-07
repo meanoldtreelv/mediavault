@@ -93,6 +93,18 @@ services:
       - 6881:6881/udp
     restart: unless-stopped
 
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    env_file:
+      - /env/common.env
+    volumes:
+      - /docker/heimdall-local:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+
 
 networks:
   default:
