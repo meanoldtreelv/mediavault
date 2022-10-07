@@ -35,6 +35,21 @@ services:
       - 1900:1900/udp #optional
     restart: unless-stopped
 
+  nzbget:
+    image: lscr.io/linuxserver/nzbget:latest
+    container_name: nzbget
+    env_file:
+      - /env/common.env
+    environment:
+      - NZBGET_USER=nzbget #optional
+      - NZBGET_PASS=Valoren89 #optional
+    volumes:
+      - /docker/nzbget:/config
+      - /docker/library/downloads:/downloads #optional
+    ports:
+      - 6789:6789
+    restart: unless-stopped
+
 
 networks:
   default:
